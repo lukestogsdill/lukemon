@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+pokeform
+{% endblock %}
+
+{% block content %}
+<form action='/pokeform' method='POST'>
+    <label for='poke_name'>Enter Pokemon Name</label>
+    <input type='text' name='poke_name' id='poke_name'>
+</form>
+{% if new_poke_data %}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">1st Move</th>
+            <th scope="col">Base Exp</th>
+            <th scope="col">Base HP</th>
+            <th scope="col">Base Att</th>
+            <th scope="col">Base Def</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in new_poke_data %}
+        <tr>
+            <img src={{data.sprite_url}}>
+            <th scope="row">{{data.name}}</th>
+            <td>{{data.first_move}}</td>
+            <td>{{data.base_experience}}</td>
+            <td>{{data.base_hp}}</td>
+            <td>{{data.base_attack}}</td>
+            <td>{{data.base_defense}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
