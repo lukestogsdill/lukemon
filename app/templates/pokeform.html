@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+pokeform
+{% endblock %}
+
+{% block content %}
+<form action="{{url_for('pokeform')}}" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form_group">
+        {{form.poke_name.label}}
+        {{form.poke_name}}
+    </div>
+    {{form.submit_btn}}
+    <div>{{error}}</div>
+</form>
+{% if new_poke_data %}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">1st Move</th>
+            <th scope="col">Base Exp</th>
+            <th scope="col">Base HP</th>
+            <th scope="col">Base Att</th>
+            <th scope="col">Base Def</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in new_poke_data %}
+        <img src={{data.sprite_url}}>
+        <tr>
+            <th scope="row" class="table_name">{{data.name}}</th>
+            <td class="move">{{data.first_move}}</td>
+            <td class="exp">{{data.base_experience}}</td>
+            <td class="base">{{data.base_hp}}</td>
+            <td class="base">{{data.base_attack}}</td>
+            <td class="base">{{data.base_defense}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
