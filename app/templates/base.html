@@ -5,22 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
-    <title>Lukiemon {% block title %}{% endblock %}</title>
+    <title>Lukemon {% block title %}{% endblock %}</title>
 </head>
 <body>
     <nav>
-        <div class='nav_list'>
-            <div class="home_btn">
-                <a class="pokeball" href="{{url_for('home')}}"></a>
-                <div class="btn_title">
-                    <h1 class="home_title solid">LUKEMON</h1>
-                    <h1 class="home_title hollow">LUKEMON</h1> 
-                </div>        
-            </div>
-            <ul>
-                <li><a href="{{url_for('pokeform')}}">Pokedex</li>
-            </ul>
+         <div class="home_btn">
+            <a class="pokeball" href="{{url_for('home')}}"></a>
+            <div class="btn_title">
+                <h1 class="home_title solid">LUKEMON</h1>
+                <h1 class="home_title hollow">LUKEMON</h1> 
+            </div>        
         </div>
+        <ul>
+            <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
+            <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
+            <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
+            <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
+        </ul>
+        <ul>
+
+        </ul>
     </nav>
     <div class="lukemon_tree">
         {% block content %}

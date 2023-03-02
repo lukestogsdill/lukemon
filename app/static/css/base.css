@@ -5,29 +5,28 @@
     margin: 0;
     font-family: sans-serif;
     text-decoration: none;
-    list-style: none; 
 }
 
 
-/* *{border:solid green 2px; margin: 5px;}
+*{border:solid green 2px; margin: 5px;}
 *:nth-child(1){border:solid 2px blue;}
-*:nth-child(2){border:solid 2px red;}
-*:nth-child(3){border:solid 2px orange;}  */
-
-
+*:nth-child(2){border:solid 2px white;}
+*:nth-child(3){border:solid 2px orange;}
 
 body{
     background-color: black;
 }
 
 nav{
+    display:flex;
     background-color: #ff1100c7;
     border-bottom: solid 2px #ffffff;
 }
 
-.home_btn, .nav_list{
+.home_btn{
     display: flex;
     align-items: center;
+    padding-right:12em;
 }
 .home_title{
     position:absolute;
@@ -56,7 +55,7 @@ nav{
     background-size: cover;
     background-position: center;
     margin:.2em;
-    padding: 1em
+    padding: 1em;
 }
 
 .pokeball:hover{
@@ -66,16 +65,16 @@ nav{
     animation-iteration-count: 2;
 }
 ul{
-    display:inline-flex;
-    padding-left:10em
+    display:flex; 
+    margin-left: 2em;
+    justify-content: space-between;
+    width:50%;
 }
-
-ul a{
-    padding: 2em;
-    font-size: 1.4em;
-    text-align: center;
+.nav_link{
+    align-self: center;
+    padding: 7% 0;
+    color: white;
 }
-
 .lukemon_tree{
     margin:2em;
 }
@@ -96,6 +95,9 @@ ul a{
     src: url('../font/PokemonHollowNormal.woff2') format('woff2');
 }
 
+@media screen {
+    
+}
 
 /* POKEFORM CSS */
 
