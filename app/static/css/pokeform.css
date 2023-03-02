@@ -1,0 +1,43 @@
+.pokesprite{
+    width: 250px;
+}
+
+table {
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+}
+
+.table_name {
+    border: #0000ff solid 2px;
+    background-color: #0000ff50;
+}
+
+.move {
+    border: #15ff00 solid 2px;
+    background-color: #15ff0088;
+}
+
+.exp {
+    border: #b700ff solid 2px;
+    background-color: #b700ff88;
+}
+
+.base {
+    border: #ff0800 solid 2px;
+    background-color: #ff080088;
+}
+
+
+form,
+.form_group {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+th,
+tr {
+    border-radius: 4px;
+    padding: .5em;
+}
