@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "lukemon",
+            "connectString": "postgres://hjxraoaj:DE75jFcHLoLZl8FVCBiDAWZmG4bi3pc-@batyr.db.elephantsql.com/hjxraoaj"
+        }
+    ]
+}

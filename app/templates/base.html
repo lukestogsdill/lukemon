@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
     {% block styles %}
-    
+
     {% endblock %}
     <script src="https://kit.fontawesome.com/5e8803ef87.js" crossorigin="anonymous"></script>
     <title>Lukemon {% block title %}{% endblock %}</title>
@@ -23,18 +23,25 @@
             </div>
         </div>
         <div class="link_container">
-            <ul class="main_link">
-                <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
-                <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
-                <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
-                <a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a>
+            <ul class="nav_links">
+                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
             </ul>
-            <ul class="side_link">
+            <ul class="login_link">
                 <a href="{{url_for('login')}}" class="nav_link">Login</a>
             </ul>
         </div>
         <div class="drop_menu">
             <input type="checkbox">
+            <ul class="menu_bar">
+                <li><a href="{{url_for('login')}}" class="drop_link">Login/signup</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
+                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
+            </ul>
         </div>
     </nav>
     <div class="lukemon_tree">

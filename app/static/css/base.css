@@ -3,6 +3,7 @@
     margin: 0;
     font-family: monospace;
     text-decoration: none;
+    list-style: none;
 }
 
 
@@ -62,31 +63,52 @@ nav {
     color: blue;
     font-size: 2.5em;
 }
-
 .link_container{
     display:flex;
+    margin-left: 3em;
+    justify-content: space-between;
+    width:100%
+}
+
+.nav_links{
+    display:flex;
     width:100%;
-    justify-content: space-between;
+    max-width: 400px;
+    justify-content: space-between; 
 }
 
-.main_link {
-    display: flex;
-    margin-left: 2em;
-    justify-content: space-between;
-    width: 50%;
-    max-width: 50%;
+.nav_links li{
+    align-self: center;
+    margin: 4em 0;
+
+}
+.nav_link{
+    padding: 60% 0;
+    border:solid black 2px;
 }
 
-.drop_menu{
-    width: 10px;
-    height: 10px;
-    background-color: white;
-}
 .drop_menu input{
-    appearance: none;
+    width:80px;
+    height: 80px;
+    background-color: blue;
+}
+.drop_menu input:checked + .menu_bar{
+    display:contents;
 }
 
+.menu_bar{
+    display:flex;
+    display:none;
+    flex-direction: column;
+    top:500px;
+    border:solid white 2px;
+}
 
+.menu_bar,
+.menu_bar li,
+.drop_menu input {
+    display:none;
+}
 
 
 .lukemon_tree {
@@ -116,14 +138,63 @@ nav {
 
 @font-face {
     font-family: 'pokefont_solid';
-    src: url('../font/PokemonSolidNormal.woff2') format('woff2');
+    src: url('../images&font/font/PokemonSolidNormal.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'pokefont_hollow';
-    src: url('../font/PokemonHollowNormal.woff2') format('woff2');
+    src: url('../images&font/font/PokemonHollowNormal.woff2') format('woff2');
+}
+
+@media screen and (max-width:600px) {
+    .menu_bar li:nth-child(1),
+    .drop_menu input {
+        display:block;
+    }
+    .login_link{
+        display: none;
+    }
+    
+}
+@media screen and (max-width:550px) {
+    .menu_bar li:nth-child(2) {
+        display:block;
+    }
+    .nav_links li:nth-child(4){
+        display:none;
+    }
+}
+@media screen and (max-width:500px) {
+    .menu_bar li:nth-child(3) {
+        display:block;
+    }
+    .nav_links li:nth-child(3){
+        display:none;
+    }
+}
+@media screen and (max-width:450px) {
+    .menu_bar li:nth-child(4) {
+        display:block;
+    }
+    .nav_links li:nth-child(2){
+        display:none;
+    }
+}
+@media screen and (max-width:400px) {
+    .menu_bar li:nth-child(5) {
+        display:block;
+    }
+    .menu_bar{
+        justify-content: center;
+    }
+    .nav_links li:nth-child(1){
+        display:none;
+    }
+    .nav_links{
+        justify-content: center;
+    }
 }
 
 
-/* POKEFORM CSS */
+
 
