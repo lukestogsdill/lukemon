@@ -4,6 +4,7 @@
     font-family: monospace;
     text-decoration: none;
     list-style: none;
+    box-sizing: 0;
 }
 
 
@@ -110,6 +111,31 @@ nav {
     display:none;
 }
 
+.alert{
+    text-align: center;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 1em;
+}
+.alert-success{
+    background-color: #00800070;
+    border: solid green 2px;
+}
+.alert-warning{
+    background-color: #ffff0070;
+    border: solid yellow 2px;
+}
+.alert-danger{
+    background-color: #ff000070;
+    border: solid red 2px;
+}
+.closebtn{
+    cursor: pointer;
+    font-size: 2.5em;
+}
+
 
 .lukemon_tree {
     margin: 2em;
@@ -151,7 +177,7 @@ nav {
     .drop_menu input {
         display:block;
     }
-    .login_link{
+    .profile_link{
         display: none;
     }
     

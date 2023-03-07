@@ -9,47 +9,35 @@
     {% block styles %}
 
     {% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images&font/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images&font/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images&font/images/favicon-16x16.png">
+    <link rel="manifest" href="../static/images&font/images/site.webmanifest">
     <script src="https://kit.fontawesome.com/5e8803ef87.js" crossorigin="anonymous"></script>
     <title>Lukemon {% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <nav>
-        <div class="home_btn">
-            <a class="pokeball" href="{{url_for('home')}}"></a>
-            <div class="btn_title">
-                <h1 class="home_title solid">LUKEMON</h1>
-                <h1 class="home_title hollow">LUKEMON</h1>
-            </div>
-        </div>
-        <div class="link_container">
-            <ul class="nav_links">
-                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="nav_link">Pokedex</a></li>
-            </ul>
-            <ul class="login_link">
-                <a href="{{url_for('login')}}" class="nav_link">Login</a>
-            </ul>
-        </div>
-        <div class="drop_menu">
-            <input type="checkbox">
-            <ul class="menu_bar">
-                <li><a href="{{url_for('login')}}" class="drop_link">Login/signup</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
-                <li><a href="{{url_for('pokeform')}}" class="drop_link">Pokedex</a></li>
-            </ul>
-        </div>
-    </nav>
+    {% include './includes/nav.html' %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert-{{category}} alert" role="alert">
+                    {{message}}
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="lukemon_tree">
         {% block content %}
 
         {% endblock %}
     </div>
 
+   
 </body>
 
 </html>

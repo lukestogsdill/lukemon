@@ -10,7 +10,7 @@ pokeform
 
 {% block content %}
 <div class="search_container">
-    <form action="{{url_for('pokeform')}}" method="POST">
+    <form action="{{url_for('auth.pokeform')}}" method="POST">
         {{form.hidden_tag()}}
         <div class="form_group">
             {{form.poke_name.label}}

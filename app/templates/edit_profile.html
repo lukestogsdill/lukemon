@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-login
+Edit Profile
 {% endblock %}
 
 {% block styles%}
@@ -10,21 +10,20 @@ login
 
 {% block content %}
 <div class="login_container">
-    <form action="{{url_for('auth.login')}}" method="POST">
-        <h1>SIGN IN</h1>
+    <h1>Edit Profile</h1>
+    <form action="{{url_for('auth.edit_profile')}}" method="POST">
         {{form.hidden_tag()}}
         <div class="form_group">
-            {{form.email.label()}}
+            {{form.first_name.label()}}
             <br>
-            {{form.email}}
+            {{form.first_name}}
         </div>
         <div class="form_group">
-            {{form.password.label()}}
+            {{form.last_name.label()}}
             <br>
-            {{form.password}}
+            {{form.last_name}}
         </div>
-        {{form.submit_btn}}
-        <p>Dont have an account? <a href="{{url_for('auth.signup')}}">Sign Up!</a></p>
+        {{form.submit_btn(class='submit_btn')}}
         <div>{{error}}</div>
     </form>
 </div>

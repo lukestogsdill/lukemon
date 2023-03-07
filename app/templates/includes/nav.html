@@ -1,0 +1,47 @@
+<nav>
+    <div class="home_btn">
+        <a class="pokeball" href="{{url_for('main.home')}}"></a>
+        <div class="btn_title">
+            <h1 class="home_title solid">LUKEMON</h1>
+            <h1 class="home_title hollow">LUKEMON</h1>
+        </div>
+    </div>
+    <div class="link_container">
+        <ul class="nav_links">
+            <li><a href="{{url_for('auth.pokeform')}}" class="nav_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="nav_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="nav_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="nav_link">Pokedex</a></li>
+        </ul>
+        {% if current_user.is_authenticated %}
+
+        <div class="profile_link">
+            <div class="profile_pic"></div>
+            <p>Hello, {{current_user.first_name}}</p>
+            <a href="{{url_for('auth.edit_profile')}}">Edit Profile</a>       
+        </div>
+        <div class="profile_link">
+            <a href="{{url_for('auth.logout')}}">Log out</a>
+        </div>
+
+        {% else %}
+        <ul class="profile_link">
+            <a href="{{url_for('auth.login')}}" class="nav_link">Login/Signup</a>
+        </ul>
+        {% endif %}
+    </div>
+    <div class="drop_menu">
+        <input type="checkbox">
+        <ul class="menu_bar">
+            {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('auth.edit_profile')}}" class="drop_link">Edit Profile</a><br><a href="{{url_for('auth.logout')}}" class="drop_link">Logout</a></li>
+            {% else %}
+            <li><a href="{{url_for('auth.login')}}" class="drop_link">Login/signup</a></li>
+            {% endif %}
+            <li><a href="{{url_for('auth.pokeform')}}" class="drop_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="drop_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="drop_link">Pokedex</a></li>
+            <li><a href="{{url_for('auth.pokeform')}}" class="drop_link">Pokedex</a></li>
+        </ul>
+    </div>
+</nav>

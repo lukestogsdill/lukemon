@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    # profile_pic = db.Column(db.File, nullable=False)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
@@ -21,6 +22,7 @@ class User(UserMixin, db.Model):
     
     # use this method to register our user attributes
     def from_dict(self, data):
+        # self.profile_pic = data['profile_pic']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
