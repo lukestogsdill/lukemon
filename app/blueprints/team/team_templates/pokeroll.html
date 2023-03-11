@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/pokeform.css')}}">
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="search_container">
+    <form method="post" action="{{url_for('team.pokeroll')}}">
+        <input type="submit" value="Roll">
+    </form>
+    {% if lukemon_data %}
+        <form method="post" action="{{url_for('team.pokecatch')}}">
+            <input type="submit" value="Catch">
+        </form>
+    {% endif %}
+        
+    
+    {% if new_stats_data %}
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">HP</th>
+                <th scope="col">Att</th>
+                <th scope="col">Def</th>
+                <th scope="col">Speed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in new_stats_data %}
+            <img src={{data.sprite_url}} class="pokesprite">
+            <tr>
+                <th scope="row" class="table_name">{{data.poke_name.title()}}</th>
+                <td class="hp">{{data.hp}}</td>
+                <td class="att">{{data.att}}</td>
+                <td class="def">{{data.defe}}</td>
+                <td class="speed">{{data.speed}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% for data in lukemon_data %}
+    <div class="move_display">
+        Attack Move
+        <ul>
+            <li>Damage: {{data.damage}}</li>
+            <li>Crit Chance: %{{data.crit*100}}</li>
+            <li>Accuracy: %{{data.accuracy*100}}</li>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

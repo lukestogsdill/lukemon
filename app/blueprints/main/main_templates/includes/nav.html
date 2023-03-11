@@ -1,0 +1,60 @@
+<nav>
+    <div class="home_btn">
+        <a class="pokeball" href="{{url_for('main.home')}}"></a>
+        <div class="btn_title">
+            <h1 class="home_title solid">LUKEMON</h1>
+            <h1 class="home_title hollow">LUKEMON</h1>
+        </div>
+    </div>
+    <div class="link_container">
+        <ul class="nav_links">
+            <a href="{{url_for('team.pokeroll')}}" class="nav_link">
+                <li>Poke Roll</li>
+            </a>
+            <a href="{{url_for('team.poketeam')}}" class="nav_link">
+                <li>Team</li>
+            </a>
+            <a href="{{url_for('posts.create_post')}}" class="nav_link">
+                <li>Create Post</li>
+            </a>   
+        </ul>
+        {% if current_user.is_authenticated %}
+        <div class="profile_nav">
+            <img src="{{current_user.img_url}}" width="80">
+            <div class="profile_link">
+                <p>Hello, {{current_user.first_name}}</p>
+                <a href="{{url_for('auth.edit_profile')}}">Edit Profile</a>
+            </div>
+            <div class="profile_link">
+                <a href="{{url_for('auth.logout')}}"><li>Log out</li></a>
+            </div>
+        </div>
+
+        {% else %}
+        <ul class="profile_link">
+            <a href="{{url_for('auth.login')}}" class="nav_link"><li>Login/Signup<li></a>
+        </ul>
+        {% endif %}
+    </div>
+    <div class="drop_menu">
+        <input type="checkbox">
+        <ul class="menu_bar">
+            {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('auth.edit_profile')}}" class="drop_link">Edit Profile</a><br><a
+                    href="{{url_for('auth.logout')}}" class="drop_link">Logout</a></li>
+            {% else %}
+            <li><a href="{{url_for('auth.login')}}" class="drop_link">Login/signup</a></li>
+            {% endif %}
+            <ul class="drop_links">
+                <a href="{{url_for('team.pokeroll')}}" class="drop_link">
+                    <li>Poke Roll</li>
+                </a>
+                <a href="{{url_for('team.poketeam')}}" class="drop_link">
+                    <li>Team</li>
+                </a>
+                <a href="{{url_for('posts.create_post')}}" class="drop_link">
+                    <li>Create Post</li>
+                </a>
+            </ul>
+    </div>
+</nav>

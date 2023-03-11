@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/poketeam.css')}}">
+{% endblock %}
+
+{% block content %}
+
+{% if current_user.teams %}
+<div class="poke_team">
+    {% for data in current_user.teams %}
+    <div class="poke_card">
+        
+        <img src={{data.lukemon.sprite_url}} class="pokesprite" width="200">
+        <ul>
+            <h4>Name </h4>
+            <li>{{data.lukemon.poke_name.title()}}</li>
+            <h4>HP </h4>
+            <li>{{data.lukemon.hp}}</li>
+            <h4>Att </h4>
+            <li>{{data.lukemon.att}}</li>
+            <h4>Def </h4>
+            <li>{{data.lukemon.defe}}</li>
+            <h4>Speed </h4>
+            <li>{{data.lukemon.speed}}</li>
+        </ul>
+        <ul>
+            <h2>SUPER DUPER PUNCH</h2>
+            <h4>Damage </h4>
+            <li>{{data.damage}}</li>
+            <h4>Crit Chance </h4>
+            <li>%{{data.crit*100}}</li>
+            <h4>Accuracy </h4>
+            <li>%{{data.accuracy*100}}</li>
+        </ul>
+    
+        <form action="{{url_for('team.poke_del', poke_id=data.id)}}">
+            <input type="submit" value="Remove">
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-signup
+Edit Profile
 {% endblock %}
 
 {% block styles%}
@@ -10,10 +10,14 @@ signup
 
 {% block content %}
 <div class="login_container">
-    <h1>Sign Up</h1>
-    <form action="{{url_for('auth.signup')}}" method="POST">
+    <h1>Edit Profile</h1>
+    <form action="{{url_for('auth.edit_profile')}}" method="POST">
         {{form.hidden_tag()}}
-
+        <div class="form_group">
+            {{form.img_url.label()}}
+            <br>
+            {{form.img_url}}
+        </div>
         <div class="form_group">
             {{form.first_name.label()}}
             <br>
@@ -23,21 +27,6 @@ signup
             {{form.last_name.label()}}
             <br>
             {{form.last_name}}
-        </div>
-        <div class="form_group">
-            {{form.email.label()}}
-            <br>
-            {{form.email}}
-        </div>
-        <div class="form_group">
-            {{form.password.label()}}
-            <br>
-            {{form.password}}
-        </div>
-        <div class="form_group">
-            {{form.confirm_password.label()}}
-            <br>
-            {{form.confirm_password}}
         </div>
         {{form.submit_btn(class='submit_btn')}}
         <div>{{error}}</div>

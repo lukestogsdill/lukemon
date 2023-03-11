@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/universal_form.css')}}">
+{% endblock %}
+{% block title %}
+PostFight
+{% endblock %}
+
+{% block content %}
+<h1>Create Post Page</h1>
+<form action="{{url_for('posts.create_post')}}" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form_group">
+      {{form.caption.label()}}
+      {{form.caption}}
+    </div>
+    {{form.submit_btn}}
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="posts_container">
+<h1>Welcome!</h1>
+{% if posts %}
+{%if users%}
+{% for user in users%}
+{% for post in posts %}
+{{user.first_name}}
+<a class="post_card" href="#">
+    <img src="{{user.img_url}}" width="40">
+    <p>{{post.caption}}</p>
+    <small>{{post.author.first_name}} - {{moment(post.date_created).fromNow()}}</small>
+</a>
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+</div>
+{% endblock %}

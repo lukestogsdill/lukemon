@@ -6,28 +6,35 @@ table {
     background-color: black;
     color: white;
     border-radius: 4px;
+    font-size: 1.4em;
 }
 
 .table_name {
-    border: #0000ff solid 2px;
-    background-color: #0000ff50;
+    border: #00f7ff solid 2px;
+    background-color: #00f7ff88;
 }
-
-.move {
+.att{
+    border: #ff0000 solid 2px;
+    background-color: #ff000088;
+}
+.def{
+    border: #1100ff solid 2px;
+    background-color: #1100ff88;
+}
+.hp {
     border: #15ff00 solid 2px;
     background-color: #15ff0088;
 }
 
-.exp {
+.speed {
     border: #b700ff solid 2px;
     background-color: #b700ff88;
 }
 
-.base {
-    border: #ff0800 solid 2px;
-    background-color: #ff080088;
+.move_display{
+    color:white;
+    font-size: 2em;
 }
-
 
 form,
 .form_group {

@@ -1,0 +1,14 @@
+/* * {border: solid green 2px; margin: 3px;}
+*>*:nth-child(1) {border: solid 2px blue;}
+*>*:nth-child(2) {border: solid 2px white;}
+*>*:nth-child(3) {border: solid 2px orange;} */
+
+.poke_team{
+color:white;
+}
+.poke_card{
+    display:flex;
+}
+.poke_sprite{
+    width:300px;
+}

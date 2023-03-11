@@ -1,40 +1,10 @@
 from flask import render_template, request, flash, redirect, url_for
-import requests
-from .forms import PokeForm, Login, SignUp, EditProfile
+from .forms import Login, SignUp, EditProfile
 from . import auth
-from app.models import User
+from ...models import User
 from werkzeug.security import check_password_hash
 from flask_login import login_user, logout_user, current_user, login_required
 
-
-
-
-@auth.route('/pokeform', methods=['GET', 'POST'])
-@login_required
-def pokeform():
-    form = PokeForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        poke_name = form.poke_name.data
-        url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
-        response = requests.get(url)
-        if response.ok and poke_name != None:
-            poke_data = response.json()
-            new_poke_data = []
-            caught_pokemon = {
-                'name': poke_data['name'],
-                'first_move': poke_data['moves'][0]['move']['name'],
-                'base_experience': poke_data['base_experience'],
-                'sprite_url': poke_data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'],
-                'base_attack': poke_data['stats'][1]['base_stat'],
-                'base_hp': poke_data['stats'][0]['base_stat'],
-                'base_defense': poke_data['stats'][2]['base_stat']
-            }
-            new_poke_data.append(caught_pokemon)
-            return render_template('pokeform.html', new_poke_data=new_poke_data, form=form)
-        else:
-            error = "pokemon doesn't exist"
-            return render_template('pokeform.html', error=error, form=form)
-    return render_template('pokeform.html', form=form)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -67,7 +37,7 @@ def signup():
     if request.method == 'POST' and form.validate_on_submit():
     # Grabbing our form data and storing into a dict
         new_user_data = {
-            # 'profile_pic': form.profile_pic.data,
+            'img_url': form.img_url.data,
             'first_name': form.first_name.data.title(),
             'last_name': form.last_name.data.title(),
             'email': form.email.data.lower(),
@@ -95,14 +65,14 @@ def edit_profile():
     if request.method == 'POST' and form.validate_on_submit():
 
         new_user_data = {
-            # 'profile_pic': form.profile_pic.data,
+            'img_url': form.img_url.data,
             'first_name': form.first_name.data.title(),
             'last_name': form.last_name.data.title(),
         }
          
         #add changes to db
-        current_user.from_dict(new_user_data)
-        current_user.save_to_db()
+        current_user.update_from_dict(new_user_data)
+        current_user.update_to_db()
         flash('Profile Updated!', 'success')
         return redirect(url_for('main.home'))
 
