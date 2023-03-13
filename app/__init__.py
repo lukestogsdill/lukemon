@@ -41,4 +41,5 @@ def create_app():
     app.register_blueprint(team)
     app.register_blueprint(posts)
 
+
     return app

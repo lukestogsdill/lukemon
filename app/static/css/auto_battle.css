@@ -1,0 +1,29 @@
+/* * {border: solid green 2px; margin: 3px;}
+*>*:nth-child(1) {border: solid 2px blue;}
+*>*:nth-child(2) {border: solid 2px white;}
+*>*:nth-child(3) {border: solid 2px orange;} */
+
+
+.auto_battle_container{
+    display:flex;
+    flex-direction: column;
+    color:white
+}
+
+.poke_card,
+.team_container,
+.log_box {
+    display:flex;
+}
+
+.team_container{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.log_box{
+    flex-wrap: wrap;
+}
+.poke_sprite{
+    width:200px;
+}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/auto_battle.css')}}">
+{% endblock %}
+{% block title %}
+Auto Battle
+{% endblock %}
+
+{% block content %}
+<div class="auto_battle_container">
+    {% if winner%}
+    <h1>{{winner}}</h1>
+    {% endif %}
+    <div class="team_container">
+        {% if current_user.teams %}
+        <div class="poke_team">
+            {% for data in current_user.teams %}
+            <div class="poke_card">
+                
+                <img src={{data.lukemon.sprite_url}} class="pokesprite" width="200">
+                <ul>
+                    <h4>Name </h4>
+                    <li>{{data.lukemon.poke_name.title()}}</li>
+                    <h4>HP </h4>
+                    <li>{{data.lukemon.hp}}</li>
+                    <h4>Att </h4>
+                    <li>{{data.lukemon.att}}</li>
+                    <h4>Def </h4>
+                    <li>{{data.lukemon.defe}}</li>
+                    <h4>Speed </h4>
+                    <li>{{data.lukemon.speed}}</li>
+                </ul>
+                <ul>
+                    <h2>SUPER DUPER PUNCH</h2>
+                    <h4>Damage </h4>
+                    <li>{{data.damage}}</li>
+                    <h4>Crit Chance </h4>
+                    <li>%{{data.crit*100}}</li>
+                    <h4>Accuracy </h4>
+                    <li>%{{data.accuracy*100}}</li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if banker_team.teams %}
+        <div class="poke_team">
+            {% for data in banker_team.teams %}
+            <div class="poke_card">
+                
+                <img src={{data.lukemon.sprite_url}} class="pokesprite" width="200">
+                <ul>
+                    <h4>Name </h4>
+                    <li>{{data.lukemon.poke_name.title()}}</li>
+                    <h4>HP </h4>
+                    <li>{{data.lukemon.hp}}</li>
+                    <h4>Att </h4>
+                    <li>{{data.lukemon.att}}</li>
+                    <h4>Def </h4>
+                    <li>{{data.lukemon.defe}}</li>
+                    <h4>Speed </h4>
+                    <li>{{data.lukemon.speed}}</li>
+                </ul>
+                <ul>
+                    <h2>SUPER DUPER PUNCH</h2>
+                    <h4>Damage </h4>
+                    <li>{{data.damage}}</li>
+                    <h4>Crit Chance </h4>
+                    <li>%{{data.crit*100}}</li>
+                    <h4>Accuracy </h4>
+                    <li>%{{data.accuracy*100}}</li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% if data_log: %}
+        <ul class="log_box">
+        {% for log in data_log %}
+            <h2>READY?? FIGHT!!</h2>
+            <li>{{log}}</li>
+        {% endfor%}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

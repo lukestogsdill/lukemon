@@ -3,7 +3,6 @@ import requests
 from . import team
 from ...models import Lukemon, User, PokeHash
 from flask_login import login_required, current_user
-from sqlalchemy import select, func
 from random import randrange, random
 
 @team.route('/pokeroll', methods=['GET','POST'])
@@ -39,9 +38,6 @@ def pokecatch():
             current_user.add_to_team(new_lukemon)
         else:
             flash(f'Your team is full', 'danger')
-
-        
-        
         return render_template('pokeroll.html')
     return render_template('pokeroll.html')
 
